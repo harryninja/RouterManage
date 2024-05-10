@@ -25,6 +25,7 @@ const GridClientes = () => {
   const [isUpdateOpen, setIsUpdateOpen] = useState(false);
 
   const handleSubmit = async (data: any) => {
+    console.log(data);
     const url = data.id ? `http://localhost:3001/clientes/${data.id}` : 'http://localhost:3001/clientes';
     const method = data.id ? 'PUT' : 'POST';
 
@@ -75,6 +76,7 @@ const GridClientes = () => {
 
   const handleEditCliente = (cliente: Cliente) => {
     setSelectedCliente(cliente);
+    console.log(cliente);
     setIsUpdateOpen(true);
   };
 
@@ -84,7 +86,7 @@ const GridClientes = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      await fetch(`http://localhost:3001/roteadores/${id}`, {
+      await fetch(`http://localhost:3001/clientes/${id}`, {
         method: 'DELETE',
       });
       const updatedClientes = clientes.filter(cliente => cliente.id !== id);

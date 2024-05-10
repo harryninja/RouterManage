@@ -9,6 +9,7 @@ interface FormUpdateRoteadorProps {
 }
 
 const FormUpdateRoteador: React.FC<FormUpdateRoteadorProps> = ({ isOpen, onClose, roteador, onSubmit }) => {
+    const [id, setId] = useState(roteador.id);
     const [enderecoIp, setEnderecoIp] = useState(roteador.enderecoIp);
     const [enderecoIpv6, setEnderecoIpv6] = useState(roteador.enderecoIpv6 || '');
     const [marca, setMarca] = useState(roteador.marca);
@@ -17,7 +18,7 @@ const FormUpdateRoteador: React.FC<FormUpdateRoteadorProps> = ({ isOpen, onClose
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        onSubmit({ enderecoIp, enderecoIpv6, marca, modelo, ativo });
+        onSubmit({ id, enderecoIp, enderecoIpv6, marca, modelo, ativo });
     };
 
     if (!isOpen) {

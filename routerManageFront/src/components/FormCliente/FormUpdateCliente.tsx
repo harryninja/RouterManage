@@ -9,6 +9,7 @@ interface FormUpdateClienteProps {
 }
 
 const FormUpdateCliente: React.FC<FormUpdateClienteProps> = ({ isOpen, onClose, cliente, onSubmit }) => {
+    const [id, setId] = useState(cliente.id);
     const [nome, setNome] = useState(cliente.nome);
     const [tipo, setTipo] = useState(cliente.tipo);
     const [cpfCnpj, setCpfCnpj] = useState(cliente.cpfCnpj);
@@ -23,7 +24,7 @@ const FormUpdateCliente: React.FC<FormUpdateClienteProps> = ({ isOpen, onClose, 
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        onSubmit({ nome, tipo, cpfCnpj, dataNascimento, rua, numero, cep, bairro, cidade, dataCadastro, ativo });
+        onSubmit({ id, nome, tipo, cpfCnpj, dataNascimento, rua, numero, cep, bairro, cidade, dataCadastro, ativo });
     };
 
     if (!isOpen) {
