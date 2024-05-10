@@ -34,7 +34,6 @@ const FormCliente: React.FC<FormClienteProps> = ({ isOpen, onClose, type }) => {
         cidade,
         ativo,
       };
-      console.log(data);
 
       onSubmit(data);
 

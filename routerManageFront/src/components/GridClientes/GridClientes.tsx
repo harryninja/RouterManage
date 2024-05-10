@@ -25,7 +25,6 @@ const GridClientes = () => {
   const [isUpdateOpen, setIsUpdateOpen] = useState(false);
 
   const handleSubmit = async (data: any) => {
-    console.log(data);
     const url = data.id ? `http://localhost:3001/clientes/${data.id}` : 'http://localhost:3001/clientes';
     const method = data.id ? 'PUT' : 'POST';
 
@@ -76,7 +75,6 @@ const GridClientes = () => {
 
   const handleEditCliente = (cliente: Cliente) => {
     setSelectedCliente(cliente);
-    console.log(cliente);
     setIsUpdateOpen(true);
   };
 

@@ -90,6 +90,20 @@ const GridRoteadores = () => {
             <p>Endereço IPv6: {roteador.enderecoIpv6 || 'N/A'}</p>
             <p>Marca: {roteador.marca}</p>
             <p>Modelo: {roteador.modelo}</p>
+            {roteador.clientes && (
+              <div>
+                <h3>Clientes Associados:</h3>
+                <div className="mt-4 p-4 bg-white rounded-lg border border-gray-200">
+                  <ul>
+                    {roteador.clientes.map((cliente, clienteIndex) => (
+                      <li key={clienteIndex} className="text-gray-700">
+                        <p>Nome: {cliente.nome}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
             <p>Ativo: {roteador.ativo ? 'Sim' : 'Não'}</p>
             <button onClick={() => handleDelete(roteador.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2">
               Excluir

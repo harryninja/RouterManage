@@ -41,7 +41,6 @@ const FormRoteador: React.FC<FormRoteadorProps> = ({ isOpen, onClose, type }) =>
         ativo: ativo,
         clientes: clientesSelecionados,
       };
-      console.log(data);
 
       onSubmit(data);
 
@@ -51,6 +50,7 @@ const FormRoteador: React.FC<FormRoteadorProps> = ({ isOpen, onClose, type }) =>
   };
 
   const onSubmit = async (data: any) => {
+    console.log(data);
     const url = data.id && data.id !== "0" ? `http://localhost:3001/roteadores/${data.id}` : 'http://localhost:3001/roteadores';
     const method = data.id && data.id !== "0" ? 'PUT' : 'POST';
 

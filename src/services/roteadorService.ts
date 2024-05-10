@@ -43,13 +43,20 @@ async delete(id: string) {
 }
 
 async findAll() {
-  const roteadores = await prisma.roteador.findMany();
+  const roteadores = await prisma.roteador.findMany({
+    include: {
+      clientes: true,
+    },
+  });
   return roteadores;
 }
 
 async findOne(id: string) {
   const roteador = await prisma.roteador.findUnique({
     where: { id: parseInt(id) },
+    include: {
+      clientes: true,
+    },
   });
   return roteador;
 }

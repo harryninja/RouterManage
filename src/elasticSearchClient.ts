@@ -1,8 +1,8 @@
 import { Client } from 'elasticsearch';
 
 const client = new Client({
- host: 'localhost:9200',
- log: 'trace'
+  host: 'https://localhost:9243',
+  log: 'trace'
 });
 
 export default client;
